@@ -109,10 +109,14 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >-------------------for (int i = 0; i < horizontalStackSize; i++){}
 >---------------if (useGpuInstancing){}else{}
 >
->//assign different alpha to each sphere
+//assign different alpha to each sphere\
+>
 >Material mat = new Material(cloudMaterial);
+>
 //define as new material
+>
 >mat.SetFloat("_globalAlpha", alphaValue);
+>
 //make a new tag to use in shader graphic
 >
 ![](image/013.jpg)
