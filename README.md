@@ -60,7 +60,8 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >Vector3 startPosition = transform.position + (Vector3.up * (offset * horizontalStackSize / 2f));
 >
 >
->if (useGpuInstancing) // initialize matrix array
+>if (useGpuInstancing)
+// initialize matrix array
 >{
 >matrices = new Matrix4x4[horizontalStackSize];
 >}
@@ -70,13 +71,14 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >{
 >
 >
->// matrix = Matrix4x4.TRS(startPosition - (Vector3.up * offset * i), transform.rotation, transform.localScale);
+// matrix = Matrix4x4.TRS(startPosition - (Vector3.up * offset * i), transform.rotation, transform.localScale);
 >matrix = Matrix4x4.TRS(startPosition, transform.rotation, new Vector3(CloudStartHeight, CloudStartHeight, >CloudStartHeight) + new Vector3(i, i, i)*cloudHeight );
 >
 >
 >if (useGpuInstancing)
 >{
->matrices[i] = matrix; // build the matrices array if using GPU instancing
+>matrices[i] = matrix;
+// build the matrices array if using GPU instancing
 >}
 >else
 >{ 
@@ -100,7 +102,7 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >-------------------------------------------------void Update(){}
 >-------------------for (int i = 0; i < horizontalStackSize; i++){}
 >
->//make a gradient to be public and use the position to catch gradient for alpha to make different sphere have >different alpha
+//make a gradient to be public and use the position to catch gradient for alpha to make different sphere have >different alpha
 >float normalizedRadius = (float) i / horizontalStackSize;
 >float alphaValue = Mathf.Clamp01(curve.Evaluate(normalizedRadius));
 >
@@ -108,8 +110,10 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >---------------if (useGpuInstancing){}else{}
 >
 >//assign different alpha to each sphere
->Material mat = new Material(cloudMaterial);//define as new material
->mat.SetFloat("_globalAlpha", alphaValue);//make a new tag to use in shader graphic
+>Material mat = new Material(cloudMaterial);
+//define as new material
+>mat.SetFloat("_globalAlpha", alphaValue);
+//make a new tag to use in shader graphic
 >
 ![](image/013.jpg)
 >
@@ -139,20 +143,20 @@ The coordinate in Unity3D y and z axis is opposite with mathematic. Also dig in 
 
 
 ## Reference:
-Real-Time Rendering of Procedurally Generated Planets 
-Florian Michelic
+**Real-Time Rendering of Procedurally Generated Planets 
+Florian Michelic**
 https://www.youtube.com/watch?v=i5uowweBeyI
 https://cescg.org/wp-content/uploads/2018/04/Michelic-Real-Time-Rendering-of-Procedurally-Generated-Planets-2.pdf
 
-Clouds for Unity3D
-kode80
+**Clouds for Unity3D
+kode80**
 http://kode80.com/blog/2016/04/11/kode80-clouds-for-unity3d/index.html
 https://github.com/kode80/kode80CloudsUnity3D/tree/master/Assets/kode80/Effects/Scripts
 
-Volumetric Clouds Write-up
+**Volumetric Clouds Write-up**
 https://www.patreon.com/posts/volumetric-write-21646034
 
-Sky download:
+**Sky download:**
 https://mega.nz/#F!rrhwgSjJ
 !40XlW4GO4Db9OVXd9aqiEQ
 
