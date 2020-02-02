@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\sourrain\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sourrain\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_2020_habits_habitats.1259810757.00" t="ExcludeRecursive" />
+    <e p="C:\Users\sourrain\Desktop\Unity_tutorial\shadergraph\2020_habits_habitats" t="IncludeRecursive">
+      <e p="2020_habits_habitats.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="8K Skybox Pack Free" t="Include">
+          <e p="ReadMe.txt" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="DrawCloudsExample.cs" t="Include" />
+          <e p="ObjectPlacer.cs" t="Include" />
+          <e p="OffsetFollow.cs" t="Include" />
+          <e p="OffsetScript.cs" t="Include" />
+          <e p="PointAttraction.cs" t="Include" />
+          <e p="ProceduralGrid.cs" t="Include" />
+          <e p="SphericalDistance.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
