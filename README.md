@@ -1,22 +1,21 @@
-# 2020_habits_habitats_cloud
-project name: Daydream
+#project name: Daydream
 ![](image/IMG_3357.JPG)
 ![](image/IMG_3343.JPG)
-Inspired by habits and habitats. Changing of the nature is slow and slience, we want to speed it up and stronger the connection between human and envirnment by creating a virtual sky with customize stimulation. 
+_Inspired by habits and habitats. Changing of the nature is slow and slience, we want to speed it up and stronger the connection between human and envirnment by creating a virtual sky with customize stimulation_
 
 
 
-Step1. create Volumetric Cloud Shader into Alpha channel (shape and movement)
+##Step1. create Volumetric Cloud Shader into Alpha channel (shape and movement)
 
 - pain two noise with different timing and scale
-![](image/003.jpg)
+![](image/001.jpg)
 
 - control slower speed easlier with code 
--------------------------------------------------public Class
-
-public float animationspeedFactor = 100;
-[Range(0,10)] public float animationSpeed = 1;
-[Range(0,10)] public float animationSpeedSlower = 1;
+>-------------------------------------------------public Class
+>
+>public float animationspeedFactor = 100;
+>[Range(0,10)] public float animationSpeed = 1;
+>[Range(0,10)] public float animationSpeedSlower = 1;
 ![](image/002.jpg)
 
 -------------------------------------------------void Update(){}
@@ -27,7 +26,7 @@ cloudMaterial.SetFloat("_animationSpeedSlower", animationSpeedSlower /
 
 
 
-Step2. create Procedural Shader into position channel (transform by VR sensor)
+##Step2. create Procedural Shader into position channel (transform by VR sensor)
 -Procedural
 
 
@@ -39,7 +38,7 @@ Step2. create Procedural Shader into position channel (transform by VR sensor)
 
 
 
-Step3. drawing a stack of Sphere in Cloud Material 
+##Step3. drawing a stack of Sphere in Cloud Material 
 - draw stack by script
 -------------------------------------------------public Class
 public int horizontalStackSize = 20;
@@ -109,7 +108,7 @@ mat.SetFloat("_globalAlpha", alphaValue);//make a new tag to use in shader graph
 ![](image/013.jpg)
 
 
-Step4. editing coordinate in C4D for the Model of the Sphere
+##Step4. editing coordinate in C4D for the Model of the Sphere
 -Model with different UV
 
 -------------------------------------------------public Class
@@ -118,7 +117,7 @@ public Mesh quadMesh;
 ![](image/009.jpg)
 
 
-Step5. remap the Volumetric Cloud Shader with Sphere coordinate
+##Step5. remap the Volumetric Cloud Shader with Sphere coordinate
 ![](image/010.jpg)
 The spherical coordinates of a point in the ISO convention (i.e. for physics: radius r, inclination θ, azimuth φ) can be obtained from its Cartesian coordinates (x, y, z) by the formulaer 
 
@@ -128,11 +127,11 @@ The coordinate in Unity3D y and z axis is opposite with mathematic. Also dig in 
 -result didn't turn well, so our resulution is giving up the Sphere coordinate,and making second layer with some individuls cloud interacte with Procedural Shader. We also want to try out some function which can earase the cloud on the sky.
 
 
-Step6. adding Sky and particle and light and sound
+##Step6. adding Sky and particle and light and sound
 
 
 
-Reference:
+##Reference:
 Real-Time Rendering of Procedurally Generated Planets 
 Florian Michelic
 https://www.youtube.com/watch?v=i5uowweBeyI
