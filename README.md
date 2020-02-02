@@ -4,25 +4,41 @@ project name: Daydream
 ![](image/IMG_3343.JPG)
 Inspired by habits and habitats. Changing of the nature is slow and slience, we want to speed it up and stronger the connection between human and envirnment by creating a virtual sky with customize stimulation. 
 
+
+
 Step1. create Volumetric Cloud Shader into Alpha channel (shape and movement)
+
 - pain two noise with different timing and scale
-![](image/Annotation 2020-02-01 234106.jpg)
+![](image/003.jpg)
+
 - control slower speed easlier with code 
 -------------------------------------------------public Class
+
 public float animationspeedFactor = 100;
 [Range(0,10)] public float animationSpeed = 1;
 [Range(0,10)] public float animationSpeedSlower = 1;
-![](image/Annotation 2020-02-01 234706.jpg)
+![](image/002.jpg)
+
 -------------------------------------------------void Update(){}
+
 cloudMaterial.SetFloat("_animationSpeed", animationSpeed / animationspeedFactor);
 cloudMaterial.SetFloat("_animationSpeedSlower", animationSpeedSlower /
-![](image/Annotation 2020-02-01 234816.jpg)
+![](image/003.jpg)
+
+
+
 Step2. create Procedural Shader into position channel (transform by VR sensor)
 -Procedural
-![](image/Annotation 2020-02-01 235312.jpg)
-![](image/Annotation 2020-02-01 235508.jpg)
-![](image/Annotation 2020-02-01 235559.jpg)
-![](image/Annotation 2020-02-01 235627.jpg)
+
+
+
+![](image/004.jpg)
+![](image/005.jpg)
+![](image/006.jpg)
+![](image/007.jpg)
+
+
+
 Step3. drawing a stack of Sphere in Cloud Material 
 - draw stack by script
 -------------------------------------------------public Class
@@ -65,38 +81,53 @@ Graphics.DrawMesh(quadMesh, matrix, mat, layer, camera, 0, null, castShadows, fa
 }
 }
 
+
+
+
 -control transparent along object Y Axis with curve
 
+
 -------------------------------------------------public Class
+
 public AnimationCurve curve;
-![](image/Annotation 2020-02-02 001554.jpg)
+![](image/008.jpg)
+
+
 -------------------------------------------------void Update(){}
 -------------------for (int i = 0; i < horizontalStackSize; i++){}
+
 //make a gradient to be public and use the position to catch gradient for alpha to make different sphere have different alpha
 float normalizedRadius = (float) i / horizontalStackSize;
 float alphaValue = Mathf.Clamp01(curve.Evaluate(normalizedRadius));
+
 -------------------for (int i = 0; i < horizontalStackSize; i++){}
 ---------------if (useGpuInstancing){}else{}
 //assign different alpha to each sphere
 Material mat = new Material(cloudMaterial);//define as new material
 mat.SetFloat("_globalAlpha", alphaValue);//make a new tag to use in shader graphic
-![](image/Annotation 2020-02-02 004405.jpg)
+
+![](image/013.jpg)
+
 
 Step4. editing coordinate in C4D for the Model of the Sphere
 -Model with different UV
 
 -------------------------------------------------public Class
 public Mesh quadMesh;
-![](image/Annotation 2020-02-02 001758.jpg)
+
+![](image/009.jpg)
+
 
 Step5. remap the Volumetric Cloud Shader with Sphere coordinate
-![](Annotation 2020-02-02 002015.jpg)
+![](image/010.jpg)
 The spherical coordinates of a point in the ISO convention (i.e. for physics: radius r, inclination θ, azimuth φ) can be obtained from its Cartesian coordinates (x, y, z) by the formulaer 
 
 The coordinate in Unity3D y and z axis is opposite with mathematic. Also dig in to the different coordinate ex: 4 degree space.
-![](image/Annotation 2020-02-02 002625.jpg)
-![](image/Annotation 2020-02-02 002409.jpg)
+![](image/012.jpg)
+![](image/011.jpg)
 -result didn't turn well, so our resulution is giving up the Sphere coordinate,and making second layer with some individuls cloud interacte with Procedural Shader. We also want to try out some function which can earase the cloud on the sky.
+
+
 Step6. adding Sky and particle and light and sound
 
 
