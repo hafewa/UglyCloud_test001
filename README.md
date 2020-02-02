@@ -41,7 +41,9 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 
 ## Step3. drawing a stack of Sphere in Cloud Material 
 - draw stack by script
+>
 >-------------------------------------------------public Class
+>
 >public int horizontalStackSize = 20;
 >public float cloudHeight = 1f;
 >public Mesh quadMesh;
@@ -51,7 +53,9 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >public Camera camera;
 >private Matrix4x4 matrix;
 >private Matrix4x4[] matrices;
+>
 >-------------------------------------------------void Update(){}
+>
 >offset = cloudHeight / horizontalStackSize / 2f;
 >Vector3 startPosition = transform.position + (Vector3.up * (offset * horizontalStackSize / 2f));
 >
@@ -102,6 +106,7 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 >
 >-------------------for (int i = 0; i < horizontalStackSize; i++){}
 >---------------if (useGpuInstancing){}else{}
+>
 >//assign different alpha to each sphere
 >Material mat = new Material(cloudMaterial);//define as new material
 >mat.SetFloat("_globalAlpha", alphaValue);//make a new tag to use in shader graphic
@@ -111,8 +116,9 @@ _Inspired by habits and habitats. Changing of the nature is slow and slience, we
 
 ## Step4. editing coordinate in C4D for the Model of the Sphere
 -Model with different UV
-
+>
 >-------------------------------------------------public Class
+>
 >public Mesh quadMesh;
 >
 ![](image/009.jpg)
